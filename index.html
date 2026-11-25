@@ -576,15 +576,14 @@
           angle: 0,
           stops: [
             ['#000000', 0, 1],
-            ['#000000', 20, 1],
-            ['#000000', 80, 0],
+            ['#000000', 100, 0],
           ],
           second: [
             ['#000000', 0, 1],
             ['#000000', 55, 0],
           ],
-          use: 'Two black layers stacked at the bottom of the banner: solid to 20% then transparent by 80%, plus solid to transparent by 55%. In Figma or Illustrator, make two rectangles with these fills.',
-          css: 'linear-gradient(to top, #000 20%, transparent 80%),\nlinear-gradient(0deg, #000, transparent 55%)',
+          use: 'Black-to-clear gradient stacked on top of the banner image.',
+          css: 'linear-gradient(to top, #000, transparent)',
         },
       ];
       const cssStops = (s) =>
@@ -629,12 +628,12 @@
         const el = document.createElement('div');
         el.className = 'grad';
         el.innerHTML = `<div class="bar" style="background:${bg}"></div>
-    <div class="body"><h4>${g.name} <span class="meta" style="font-weight:400">· ${g.angle}°${g.angle === 0 ? ' (bottom → top)' : g.angle === 90 ? ' (left → right)' : ''}</span></h4>
-    <div class="stops">${stopsHtml(g.stops)}</div>
-    ${g.second ? `<div class="stops"><span class="meta" style="margin:0">Second layer:</span>${stopsHtml(g.second)}</div>` : ''}
-    <p class="meta" style="margin:0">${g.use}</p>
-    <pre><code>${g.css}</code></pre>
-    <div class="row" style="margin-top:0"><button type="button" class="tool" data-copy="${g.id}">Copy CSS</button><button type="button" class="tool" data-svg="${g.id}">Download SVG</button></div></div>`;
+      <div class="body"><h4>${g.name} <span class="meta" style="font-weight:400">· ${g.angle}°${g.angle === 0 ? ' (bottom → top)' : g.angle === 90 ? ' (left → right)' : ''}</span></h4>
+      <div class="stops">${stopsHtml(g.stops)}</div>
+      ${g.second ? ` ` : ''}
+      <p class="meta" style="margin:0">${g.use}</p>
+      <pre><code>${g.css}</code></pre>
+      <div class="row" style="margin-top:0"><button type="button" class="tool" data-copy="${g.id}">Copy CSS</button><button type="button" class="tool" data-svg="${g.id}">Download SVG</button></div></div>`;
         host.appendChild(el);
       }
       function download(name, blob) {
