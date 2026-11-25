@@ -23,7 +23,6 @@
         --near-black: #222;
         --serif: minion-pro, Georgia, 'Times New Roman', serif;
         --sans: 'CircularStd', Helvetica, Arial, sans-serif;
-        --brand-gradient: linear-gradient(90deg, var(--navy), var(--teal));
         --rule: #d6e1e7;
         --panel: #f4f7f8;
       }
@@ -75,129 +74,24 @@
         padding: 18px 0;
       }
       .doc-head h1 {
-        font: 700 clamp(28px, 4vw, 40px)/1 var(--serif);
+        font: 700 clamp(32px, 5.5vw, 56px)/1.15 var(--serif);
         margin: 0;
       }
       .doc-head h1 a {
-        color: inherit;
         text-decoration: none;
+        background: linear-gradient(90deg, var(--navy), var(--teal)) left
+          center/120% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-      .menu {
-        position: relative;
-      }
-      .menu-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        font: 500 13px/1 var(--sans);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--navy);
-        background: #fff;
-        border: 1px solid var(--navy);
-        border-radius: 2px;
-        padding: 10px 14px;
-        cursor: pointer;
-      }
-      .menu-btn:hover {
-        background: var(--navy);
-        color: #fff;
-      }
-      .burger {
-        position: relative;
-        width: 18px;
-        height: 12px;
-      }
-      .burger i {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: currentColor;
-        transition:
-          transform 0.2s ease,
-          opacity 0.2s ease,
-          top 0.2s ease;
-      }
-      .burger i:nth-child(1) {
-        top: 0;
-      }
-      .burger i:nth-child(2) {
-        top: 5px;
-      }
-      .burger i:nth-child(3) {
-        top: 10px;
-      }
-      .menu-btn[aria-expanded='true'] {
-        background: var(--navy);
-        color: #fff;
-      }
-      .menu-btn[aria-expanded='true'] .burger i:nth-child(1) {
-        top: 5px;
-        transform: rotate(45deg);
-      }
-      .menu-btn[aria-expanded='true'] .burger i:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-btn[aria-expanded='true'] .burger i:nth-child(3) {
-        top: 5px;
-        transform: rotate(-45deg);
-      }
-      .menu-panel {
-        position: absolute;
-        right: 0;
-        top: calc(100% + 10px);
-        width: min(320px, calc(100vw - 40px));
-        background: #fff;
-        border: 1px solid var(--rule);
-        border-top: 3px solid var(--navy);
-        border-radius: 2px;
-        padding: 8px 0;
-        box-shadow: 0 18px 40px rgba(0, 43, 82, 0.14);
-      }
-      .menu-panel[hidden] {
-        display: none;
-      }
-      .menu-panel ol {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        counter-reset: m;
-      }
-      .menu-panel a {
-        counter-increment: m;
-        display: grid;
-        grid-template-columns: 34px 1fr;
-        align-items: baseline;
-        padding: 11px 20px;
-        color: var(--navy);
-        text-decoration: none;
-        font: 700 20px/1.2 var(--serif);
-      }
-      .menu-panel a::before {
-        content: counter(m, decimal-leading-zero);
-        font: 500 12px/1 var(--sans);
-        letter-spacing: 0.06em;
-        color: var(--dark-teal);
-      }
-      .menu-panel a:hover,
-      .menu-panel a:focus-visible {
-        background: var(--panel);
-        outline: none;
-      }
-      .menu-panel a[aria-current='true'] {
-        background: var(--panel);
-        box-shadow: inset 3px 0 0 var(--teal);
-      }
-      .menu-panel small {
-        display: block;
-        grid-column: 2;
-        font: 400 13px/1.4 var(--sans);
-        color: var(--charcoal);
-        margin-top: 3px;
+      @media (forced-colors: active) {
+        .doc-head h1 a {
+          -webkit-text-fill-color: CanvasText;
+        }
       }
       section {
-        scroll-margin-top: 96px;
+        scroll-margin-top: 120px;
       }
       section {
         border-top: 1px solid var(--rule);
@@ -249,25 +143,6 @@
       .tool:disabled {
         opacity: 0.5;
         cursor: default;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 14px;
-      }
-      th,
-      td {
-        text-align: left;
-        padding: 9px 10px;
-        border-bottom: 1px solid var(--rule);
-        vertical-align: top;
-      }
-      th {
-        font-weight: 500;
-        color: var(--charcoal);
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
       }
       pre {
         margin: 0;
@@ -388,170 +263,10 @@
         border: 1px solid var(--rule);
       }
 
-      /* ===== Typography (production CSS) ===== */
+      /* ===== Banner title (production CSS) ===== */
       .page-title {
         font: 700 46px/52px var(--serif);
         color: var(--white);
-      }
-      .section-title {
-        font: 700 56px/63px var(--serif);
-      }
-      .feature-title {
-        font: 700 40px/45px var(--serif);
-      }
-      .lead {
-        font: 400 24px/38px var(--serif);
-        color: var(--white);
-      }
-      .intro-copy {
-        font: 400 18px/32px var(--serif);
-        color: var(--white);
-      }
-      .editorial {
-        font: 400 18px/32px var(--serif);
-        color: var(--navy);
-      }
-      .quote-copy {
-        font: 400 18px/32px var(--serif);
-        color: var(--charcoal);
-      }
-      .site-label {
-        font: 500 24px/32px var(--sans);
-        color: var(--near-black);
-      }
-      .feature-copy {
-        font: 400 16px/28.44px var(--sans);
-        color: var(--navy);
-      }
-      .cta {
-        font: 400 14px/24.89px var(--sans);
-        color: var(--white);
-      }
-      .section-title,
-      .feature-title {
-        background: var(--brand-gradient) left center/120% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      @media (forced-colors: active) {
-        .section-title,
-        .feature-title {
-          -webkit-text-fill-color: CanvasText;
-        }
-      }
-
-      .families {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-        gap: 14px;
-      }
-      .family {
-        border: 1px solid var(--rule);
-        border-radius: 2px;
-        padding: 20px;
-      }
-      .family .big {
-        font-size: 64px;
-        line-height: 1;
-        margin: 6px 0 10px;
-      }
-      .family .chars {
-        font-size: 18px;
-        line-height: 1.5;
-        color: var(--charcoal);
-        overflow-wrap: anywhere;
-      }
-      .spec-row {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 260px;
-        gap: 20px;
-        border-top: 1px solid var(--rule);
-        padding: 20px;
-      }
-      .spec-row:last-child {
-        border-bottom: 1px solid var(--rule);
-      }
-      .spec-row.dark {
-        background: #000;
-        border-color: #333;
-      }
-      .spec-row .tag {
-        font-size: 12px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--charcoal);
-        margin-bottom: 8px;
-      }
-      .spec-row.dark .tag,
-      .spec-row.dark dl {
-        color: #d8dfe3;
-      }
-      dl {
-        margin: 0;
-        font-size: 13px;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 3px 12px;
-        color: var(--charcoal);
-      }
-      dt {
-        font-weight: 500;
-      }
-      dd {
-        margin: 0;
-      }
-
-      /* ===== Colors ===== */
-      .swatches {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr));
-        gap: 12px;
-      }
-      .swatches li {
-        border: 1px solid var(--rule);
-        border-radius: 2px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-      .chip {
-        height: 92px;
-        border-bottom: 1px solid var(--rule);
-        display: flex;
-        align-items: flex-end;
-        padding: 8px 10px;
-        font-size: 12px;
-      }
-      .swatches .info {
-        padding: 10px 12px 12px;
-        font-size: 13px;
-        display: grid;
-        gap: 2px;
-        flex: 1;
-      }
-      .swatches strong {
-        font-size: 15px;
-        font-weight: 500;
-      }
-      .swatches .use {
-        color: var(--charcoal);
-        margin-top: 4px;
-      }
-      .copy {
-        all: unset;
-        cursor: pointer;
-        font-family: ui-monospace, Menlo, monospace;
-        font-size: 12.5px;
-        border-bottom: 1px dotted currentColor;
-        justify-self: start;
-      }
-      .copy:focus-visible {
-        outline: 2px solid var(--navy);
-        outline-offset: 2px;
       }
 
       /* ===== Gradients ===== */
@@ -597,23 +312,6 @@
       .stop i.clear {
         background: repeating-conic-gradient(#ccc 0 25%, #fff 0 50%) 0 0/8px 8px;
       }
-      .examples {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
-        gap: 14px;
-        margin-top: 20px;
-      }
-      .ex {
-        border: 1px solid var(--rule);
-        border-radius: 2px;
-        padding: 24px;
-        min-height: 170px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        gap: 12px;
-      }
-
       footer {
         border-top: 1px solid var(--rule);
         padding: 20px 0 36px;
@@ -626,24 +324,12 @@
           font-size: 34px;
           line-height: 1.13;
         }
-        .section-title {
-          font-size: 38px;
-          line-height: 1.125;
-        }
-        .feature-title {
-          font-size: 32px;
-          line-height: 1.125;
-        }
-        .spec-row {
-          grid-template-columns: 1fr;
-        }
       }
       @media print {
         .hero::before {
           animation: none;
         }
-        .row,
-        .menu {
+        .row {
           display: none;
         }
         .doc-head {
@@ -662,48 +348,7 @@
   <body id="top">
     <header class="doc-head">
       <div class="wrap bar">
-        <h1><a href="#top">AI at Brown</a></h1>
-        <nav class="menu" aria-label="Sections">
-          <button
-            type="button"
-            class="menu-btn"
-            id="menu-btn"
-            aria-expanded="false"
-            aria-controls="menu-panel"
-          >
-            Contents
-            <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
-          </button>
-          <div class="menu-panel" id="menu-panel" hidden>
-            <ol>
-              <li>
-                <a href="#banner"
-                  >Banner<small>Layers and live preview</small></a
-                >
-              </li>
-              <li>
-                <a href="#artwork"
-                  >Banner image<small>JPEG, PNG and layered SVG</small></a
-                >
-              </li>
-              <li>
-                <a href="#type"
-                  >Typography<small>Minion Pro, Circular Std</small></a
-                >
-              </li>
-              <li>
-                <a href="#colors"
-                  >Colors<small>Swatches and .ase file</small></a
-                >
-              </li>
-              <li>
-                <a href="#gradients"
-                  >Gradients<small>Stops, CSS and SVG</small></a
-                >
-              </li>
-            </ol>
-          </div>
-        </nav>
+        <h1><a href="#top">AI at Brown - Website assets</a></h1>
       </div>
     </header>
 
@@ -856,136 +501,10 @@
         </div>
       </section>
 
-      <!-- ============ TYPOGRAPHY ============ -->
-      <section id="type">
-        <h2 class="sec">Typography</h2>
-        <div class="families">
-          <div class="family">
-            <div
-              class="tag"
-              style="
-                font-size: 12px;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                color: var(--charcoal);
-              "
-            >
-              Serif
-            </div>
-            <div
-              class="big"
-              style="font-family: var(--serif); font-weight: 700"
-            >
-              Minion Pro
-            </div>
-            <p class="chars" style="font-family: var(--serif)">
-              Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv
-              Ww Xx Yy Zz 0123456789 &amp; ’ “ ” — ?!
-            </p>
-            <p class="meta">
-              Weights used: Regular 400, Bold 700. Licensed through
-              <a href="https://fonts.adobe.com/fonts/minion">Adobe Fonts</a>
-              (included with Creative Cloud). Web kit:
-              <code>use.typekit.net/lok3dnd.css</code>.
-            </p>
-          </div>
-          <div class="family">
-            <div
-              class="tag"
-              style="
-                font-size: 12px;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                color: var(--charcoal);
-              "
-            >
-              Sans
-            </div>
-            <div class="big" style="font-family: var(--sans); font-weight: 500">
-              Circular Std
-            </div>
-            <p class="chars" style="font-family: var(--sans)">
-              Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv
-              Ww Xx Yy Zz 0123456789 &amp; ’ “ ” — ?!
-            </p>
-            <p class="meta">
-              Weights used: Book 400, Medium 500. Commercial license from
-              <a href="https://lineto.com/typefaces/circular">Lineto</a>; Brown
-              serves it on its sites from <code>ai.brown.edu/…/fonts.css</code>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ COLORS ============ -->
-      <section id="colors">
-        <h2 class="sec">Colors</h2>
-        <ul class="swatches" id="swatches"></ul>
-        <div class="row">
-          <button type="button" class="tool primary" id="download-ase">
-            Download swatches (.ase for Illustrator / Photoshop)
-          </button>
-          <button type="button" class="tool" id="copy-figma">
-            Copy HEX list (for Figma styles)
-          </button>
-        </div>
-      </section>
-
       <!-- ============ GRADIENTS ============ -->
       <section id="gradients">
         <h2 class="sec">Gradients</h2>
         <div class="grads" id="grads"></div>
-
-        <h3 class="sub">Examples in use</h3>
-        <div class="examples">
-          <div class="ex">
-            <p
-              class="tag"
-              style="
-                font-size: 12px;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                color: var(--charcoal);
-              "
-            >
-              Brand gradient · heading fill
-            </p>
-            <p class="feature-title">AI Literacy and Skill</p>
-            <p class="feature-copy">
-              Gradient clipped to the type, white page behind.
-            </p>
-          </div>
-          <div
-            class="ex"
-            style="background: var(--brand-gradient); border-color: transparent"
-          >
-            <p
-              class="tag"
-              style="
-                font-size: 12px;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-                color: #fff;
-              "
-            >
-              Brand gradient · full surface
-            </p>
-            <p
-              class="feature-title"
-              style="
-                background: none;
-                -webkit-text-fill-color: #fff;
-                color: #fff;
-              "
-            >
-              AI News from Brown
-            </p>
-            <p class="feature-copy" style="color: #fff">
-              Keep white text on the navy half; the teal end is too light for
-              small white text.
-            </p>
-          </div>
-        </div>
       </section>
     </main>
 
@@ -1039,46 +558,6 @@
         }
       }
 
-      /* Colors */
-      const COLORS = [
-        [
-          'Navy',
-          '#002B52',
-          'Editorial and feature text, gradient start, buttons',
-          '#fff',
-        ],
-        [
-          'Teal',
-          '#00B398',
-          'Gradient end, banner overlay. Not for text',
-          '#000',
-        ],
-        ['Dark teal', '#008672', 'Inline links on white', '#fff'],
-        ['Sky blue', '#59CBE8', 'Banner overlay only', '#000'],
-        ['Blue', '#0A91C5', 'Banner overlay only', '#fff'],
-        ['Brown red', '#C00404', 'Small banner overlay accent', '#fff'],
-        ['Black', '#000000', 'Banner ground, fades, pressed button', '#fff'],
-        ['White', '#FFFFFF', 'Page surface, text on black', '#000'],
-        ['Charcoal', '#434343', 'Quote paragraphs', '#fff'],
-        ['Near black', '#222222', 'Masthead site label', '#fff'],
-      ];
-      const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
-      const ul = document.getElementById('swatches');
-      for (const [name, hex, use, ink] of COLORS) {
-        const [r, g, b] = rgb(hex);
-        const li = document.createElement('li');
-        li.innerHTML = `<div class="chip" style="background:${hex}"></div>
-    <div class="info"><strong>${name}</strong>
-    <button class="copy" type="button" data-v="${hex}">HEX ${hex}</button>
-    <button class="copy" type="button" data-v="${r}, ${g}, ${b}">RGB ${r} ${g} ${b}</button></div>`;
-        ul.appendChild(li);
-      }
-      ul.addEventListener('click', (e) => {
-        const b = e.target.closest('.copy');
-        if (b) copyText(b, b.dataset.v);
-      });
-
-      /* Gradients */
       const GRADS = [
         {
           id: 'brand-gradient',
@@ -1201,94 +680,6 @@
           );
         }
       });
-
-      /* Adobe Swatch Exchange (.ase) */
-      document.getElementById('download-ase').addEventListener('click', () => {
-        const blocks = COLORS.map(([name, hex]) => {
-          const n = 'AI at Brown ' + name,
-            nameLen = n.length + 1;
-          const len = 2 + nameLen * 2 + 4 + 12 + 2;
-          const b = new DataView(new ArrayBuffer(6 + len));
-          let o = 0;
-          b.setUint16(o, 1);
-          o += 2;
-          b.setUint32(o, len);
-          o += 4;
-          b.setUint16(o, nameLen);
-          o += 2;
-          for (const ch of n) {
-            b.setUint16(o, ch.charCodeAt(0));
-            o += 2;
-          }
-          b.setUint16(o, 0);
-          o += 2;
-          'RGB '.split('').forEach((c) => {
-            b.setUint8(o, c.charCodeAt(0));
-            o += 1;
-          });
-          rgb(hex).forEach((v) => {
-            b.setFloat32(o, v / 255);
-            o += 4;
-          });
-          b.setUint16(o, 0); // global
-          return b.buffer;
-        });
-        const head = new DataView(new ArrayBuffer(12));
-        'ASEF'.split('').forEach((c, i) => head.setUint8(i, c.charCodeAt(0)));
-        head.setUint16(4, 1);
-        head.setUint16(6, 0);
-        head.setUint32(8, blocks.length);
-        download(
-          'brown-ai-swatches.ase',
-          new Blob([head.buffer, ...blocks], {
-            type: 'application/octet-stream',
-          }),
-        );
-      });
-      document.getElementById('copy-figma').addEventListener('click', (e) => {
-        copyText(
-          e.currentTarget,
-          COLORS.map(([n, h]) => n + '\t' + h).join('\n'),
-        );
-      });
-
-      /* Contents menu */
-      const menuBtn = document.getElementById('menu-btn'),
-        menuPanel = document.getElementById('menu-panel');
-      function setMenu(open, focusBtn) {
-        menuBtn.setAttribute('aria-expanded', String(open));
-        menuPanel.hidden = !open;
-        if (open) menuPanel.querySelector('a').focus();
-        else if (focusBtn) menuBtn.focus();
-      }
-      menuBtn.addEventListener('click', () =>
-        setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'),
-      );
-      menuPanel.addEventListener('click', (e) => {
-        if (e.target.closest('a')) setMenu(false);
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !menuPanel.hidden) setMenu(false, true);
-      });
-      document.addEventListener('click', (e) => {
-        if (!menuPanel.hidden && !e.target.closest('.menu')) setMenu(false);
-      });
-      const links = [...menuPanel.querySelectorAll('a')];
-      const spy = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((en) => {
-            if (en.isIntersecting)
-              links.forEach((a) =>
-                a.hash === '#' + en.target.id
-                  ? a.setAttribute('aria-current', 'true')
-                  : a.removeAttribute('aria-current'),
-              );
-          }),
-        { rootMargin: '-40% 0px -55% 0px' },
-      );
-      document
-        .querySelectorAll('main section')
-        .forEach((sec) => spy.observe(sec));
     </script>
   </body>
 </html>
