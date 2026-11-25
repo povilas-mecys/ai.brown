@@ -586,28 +586,6 @@
           use: 'Two black layers stacked at the bottom of the banner: solid to 20% then transparent by 80%, plus solid to transparent by 55%. In Figma or Illustrator, make two rectangles with these fills.',
           css: 'linear-gradient(to top, #000 20%, transparent 80%),\nlinear-gradient(0deg, #000, transparent 55%)',
         },
-        {
-          id: 'button-fill',
-          name: 'Button fill',
-          angle: 90,
-          stops: [
-            ['#002B52', 0, 1],
-            ['#005869', 100, 1],
-          ],
-          use: 'The button at rest, as it appears on screen. Use this in design files rather than stretching the brand gradient.',
-          css: 'linear-gradient(90deg, #002B52, #005869)',
-        },
-        {
-          id: 'button-hover',
-          name: 'Button hover',
-          angle: 90,
-          stops: [
-            ['#002B52', 0, 1],
-            ['#000000', 100, 1],
-          ],
-          use: 'The button fill on hover.',
-          css: 'linear-gradient(90deg, #002B52, #000000)',
-        },
       ];
       const cssStops = (s) =>
         s
